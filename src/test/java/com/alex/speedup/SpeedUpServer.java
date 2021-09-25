@@ -6,10 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 
-/**
- * @author ruxing.wrx
- * @date 2020-11-26 17:24
- */
 public class SpeedUpServer {
 
     public static void main(String[] args) {
