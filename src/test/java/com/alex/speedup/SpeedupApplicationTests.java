@@ -22,5 +22,14 @@ public class SpeedupApplicationTests {
         System.out.println("xxxxxxxxxxxxxxxxxxxxxxxx");
         System.out.println("=================================");
     }
+    @Test
+    public void testUni2t(){
+        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxx");
+        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxx");
+        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxx");
+        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxx");
+        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxx");
+        System.out.println("=================================");
+    }
 
 }
