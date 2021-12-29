@@ -4,6 +4,11 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 
+
+/**
+ * @author xianshuangzhang@gmail.com
+ * @date 2021-12-29 3:03 下午
+ */
 public class RedirectingStream extends OutputStream {
     private final PrintStream delegate;
     private OutputStream redirector;

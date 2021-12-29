@@ -7,6 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.IOException;
 
+/**
+ * xianshuangzhang@gmail.com
+ */
 @SpringBootApplication
 public class SpeedupApplication {
 

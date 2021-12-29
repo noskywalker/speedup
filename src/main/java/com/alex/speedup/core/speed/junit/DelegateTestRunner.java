@@ -19,6 +19,10 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.URI;
 
+
+/**
+ * xianshuangzhang@gmail.com
+ */
 public class DelegateTestRunner extends Runner implements Filterable, Sortable {
     private static final Logger log = LoggerFactory.getLogger(DelegateTestRunner.class);
     private Runner delegate;

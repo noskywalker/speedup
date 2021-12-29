@@ -8,6 +8,12 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+
+
+/**
+ * @author xianshuangzhang@gmail.com
+ * @date 2021-12-29 3:03 下午
+ */
 public class FileUtils {
     private static final Logger log = LoggerFactory.getLogger(FileUtils.class);
 

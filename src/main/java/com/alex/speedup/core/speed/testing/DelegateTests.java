@@ -40,6 +40,10 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+
+/**
+ * xianshuangzhang@gmail.com
+ */
 @TestExecutionListeners({ServletTestExecutionListener.class, DirtiesContextBeforeModesTestExecutionListener.class, DependencyInjectionTestExecutionListener.class, DirtiesContextTestExecutionListener.class})
 public class DelegateTests implements IHookable, ApplicationContextAware {
     private static final Logger log = LoggerFactory.getLogger(DelegateTests.class);

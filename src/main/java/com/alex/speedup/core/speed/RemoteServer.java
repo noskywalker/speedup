@@ -41,6 +41,11 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
+
+/**
+ * @author xianshuangzhang@gmail.com
+ * @date 2021-12-29 3:03 下午
+ */
 public class RemoteServer {
     private static final Logger log = LoggerFactory.getLogger(RemoteServer.class);
     private static RedirectingStream out;

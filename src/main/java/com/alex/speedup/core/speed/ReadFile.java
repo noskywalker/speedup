@@ -12,6 +12,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 
+/**
+ * @author xianshuangzhang@gmail.com
+ * @date 2021-12-29 3:03 下午
+ */
 public class ReadFile {
     private static final Logger log = LoggerFactory.getLogger(ReadFile.class);
 

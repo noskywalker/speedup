@@ -6,6 +6,10 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+/**
+ * @author xianshuangzhang@gmail.com
+ * @date 2021-12-29 3:03 下午
+ */
 public class SpeedupUtil {
     public SpeedupUtil() {
     }

@@ -4,6 +4,10 @@ package com.alex.speedup.core;
 import com.alex.speedup.core.speed.AbstractAction;
 import com.alex.speedup.core.speed.RemoteServer;
 
+
+/**
+ * xianshuangzhang@gmail.com
+ */
 public class SpeedUp {
     public SpeedUp() {
     }

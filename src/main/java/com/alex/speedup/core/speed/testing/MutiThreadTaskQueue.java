@@ -7,6 +7,10 @@ import java.io.Serializable;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
+
+/**
+ * xianshuangzhang@gmail.com
+ */
 public class MutiThreadTaskQueue {
     BlockingQueue<MutiThreadTaskQueue.TaskResult> queue = new LinkedBlockingQueue();
 

@@ -17,6 +17,36 @@
 拦截本地化的单测调用为远程http调用，jetty获取运行的类和方法信息，执行本地的反射调用
 防止每次运行单测都启动容器，只需要启动一次容器可以重复运行单测，修改逻辑和单测逻辑时jrebel会实时热加载，效率提升70%以上
 
+## 扩展更新
+集成了mockito的自定义装配
+如类A依赖于接口B的实现类：
+
+```java
+class A{
+    @Autowired
+    CLassB b;
+}
+```
+
+那么使用mockito对B进行mock，首先完成mock对象的定义：
+````java
+@Mock
+ClassB b;
+
+@before
+public void init(){
+    when(b.method()).thenReturn(xxxxx);
+}
+````
+然后在ut上下文中完成类的装配：
+````java
+
+//在ut的上下文中autowired类A，同时使用InjectMocks注解，则会自动对ClassA的实例注入mock对象，完成真实类和mock类的装配，完成集成测试
+@Autowired
+@InjectMocks
+ClassA a;
+````
+
 使用该类体验一下：
 ```java
 com.alex.speedup.SpeedupApplicationTests

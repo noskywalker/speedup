@@ -3,6 +3,11 @@ package com.alex.speedup.core.speed;
 import java.io.IOException;
 import java.io.OutputStream;
 
+
+/**
+ * @author xianshuangzhang@gmail.com
+ * @date 2021-12-29 3:03 下午
+ */
 public class LineBreakingStream extends OutputStream {
     private boolean newline = true;
     private OutputStream delegate;

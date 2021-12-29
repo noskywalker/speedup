@@ -17,6 +17,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+
+/**
+ * @author xianshuangzhang@gmail.com
+ * @date 2021-12-29 3:03 下午
+ */
 public class CommonUtils {
     private static final Logger log = LoggerFactory.getLogger(CommonUtils.class);
 
