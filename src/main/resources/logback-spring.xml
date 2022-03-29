@@ -3,9 +3,9 @@
     <!-- https://github.com/spring-projects/spring-boot/blob/v1.5.13.RELEASE/spring-boot/src/main/resources/org/springframework/boot/logging/logback/defaults.xml -->
     <include resource="org/springframework/boot/logging/logback/defaults.xml" />
 
-    <property name="APP_NAME" value="alihealth-alidoc-social" />
+    <property name="APP_NAME" value="speedup" />
     <property name="LOG_PATH" value="${user.home}/${APP_NAME}/logs" />
-    <property name="LOG_FILE" value="${LOG_PATH}/alihealth-alidoc-social.log" />
+    <property name="LOG_FILE" value="${LOG_PATH}/app.log" />
 
     <appender name="APPLICATION"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
