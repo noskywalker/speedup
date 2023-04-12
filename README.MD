@@ -13,14 +13,14 @@ Unit testing speed up framework
 - The you can rerun the UT，You will find the UT has taken effective,No matter how you have changed the UT.
 
 ## The mechanism
-I using a custom class loader and use it to load the whole project to be tested into jetty when jetty was starting.Jetty acts like a http server so that it will be listening on a specific port.I using a custom listener to intercept the UT execution when junit starting and performing the UT case.The listener will perform a remote invocation(by a GET request with the UT case's package name、class name、method name and related params) after getting the method to be run to the jetty server.After jetty receiving the http call and getting the parameters(package+class name+method+parameters).The class loader inside the jetty will use these parameters to conduct a reflection and execute the UT case really.
-Currently the jetty server is run by jrebel so that we can use the capbility of hotswap of jrebel to reload UT on the fly without rebooting.
+I used a custom class loader to load the whole project to be tested into jetty when jetty was starting.Jetty acts like a http server so that it will be listening on a specific port.I using a custom listener to intercept the UT execution when junit starting and performing the UT case and it can get thw whole context of the UT case including the class name/methond/params etc.The listener will perform a remote invocation(by a GET request with the UT case's package name、class name、method name and related params) after getting the method to be run to the jetty server.After jetty server receiving the http call and getting the parameters(package+class name+method+parameters).The class loader inside the jetty will use these parameters to conduct a reflection invovation and execute the UT case really.
+Because the jetty server is run by jrebel so that we can use the capbility of hotswap of jrebel to reload UT on the fly without rebooting.
 So we only need to start the jetty server for one time.We don't have to reboot/rerun the junit each time when we change the UT case's logic afterwards
 Improve efficiency by at least 70%
 
 ## 扩展更新
-集成了mockito的自定义装配
-如类A依赖于接口B的实现类：
+integrated mockito's custom loader
+If class A depends on Class B：
 
 ```java
 class A{
@@ -29,7 +29,7 @@ class A{
 }
 ```
 
-那么使用mockito对B进行mock，首先完成mock对象的定义：
+So i will use mockito to get class B's mocking object:
 ````java
 @Mock
 ClassB b;
@@ -39,7 +39,8 @@ public void init(){
     when(b.method()).thenReturn(xxxxx);
 }
 ````
-然后在ut上下文中完成类的装配：
+Finish the class dependency construction inside the UT context afterwards
+
 ````java
 
 //在ut的上下文中autowired类A，同时使用InjectMocks注解，则会自动对ClassA的实例注入mock对象，完成真实类和mock类的装配，完成集成测试
@@ -48,7 +49,7 @@ public void init(){
 ClassA a;
 ````
 
-使用该类体验一下：
+Just experience the finialize effect：
 ```java
 com.alex.speedup.SpeedupApplicationTests
 ```
