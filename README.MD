@@ -1,21 +1,22 @@
-##介绍
-单元测试加速框架
+##Introduction
+Unit testing speed up framework
 
-##步骤
-- 安装jrebel
-- 使用jrebel启动Speedup，debug模式启动
+##Steps
+- install jrebel first
+- using jrebel to boot Speedup in debug mode
   ![avatar](./png/Snapshot2021-10-29_08-21-30.jpg)
-- 使用jrebel启动单测，debug模式启动
+- using jrebel to boot Speedup as debug mode
     ![avatar](./png/Snapshot2021-10-29_08-23-28.jpg)
-    稍等一会，此时spring ioc会在jetty中启动，初始化整个j2ee容器并执行单测
-- 可以即时修改单测或者被测业务逻辑，然后等待jrebel热部署，约1-5s
+    wait a second，later the spring ioc will boot inside the jetty，The whole j2ee container will be initialized and execute the UT
+- You can try to change implemention of UT or can refactor the definition of UT,Jrebel will reload the UT after 1-5s
    ![avatar](./png/Snapshot2021-10-29_08-27-25.jpg)
-- 重跑单测，可以发现逻辑已经即时生效，无论是修改类定义还是一些类的依赖，均可以实时生效
+- The you can rerun the UT，You will find the UT has taken effective,No matter how you have changed the UT.
 
-## 原理
-拦截单测请求，启动jetty，加上jrebel的热部署，然后使用自定义的类加载器在jetty中启动远程的remote server，将spring ioc在该jetty容器中运行。
-拦截本地化的单测调用为远程http调用，jetty获取运行的类和方法信息，执行本地的反射调用
-防止每次运行单测都启动容器，只需要启动一次容器可以重复运行单测，修改逻辑和单测逻辑时jrebel会实时热加载，效率提升70%以上
+## The mechanism
+I using a custom class loader and use it to load the whole project to be tested into jetty when jetty was starting.Jetty acts like a http server so that it will be listening on a specific port.I using a custom listener to intercept the UT execution when junit starting and performing the UT case.The listener will perform a remote invocation(by a GET request with the UT case's package name、class name、method name and related params) after getting the method to be run to the jetty server.After jetty receiving the http call and getting the parameters(package+class name+method+parameters).The class loader inside the jetty will use these parameters to conduct a reflection and execute the UT case really.
+Currently the jetty server is run by jrebel so that we can use the capbility of hotswap of jrebel to reload UT on the fly without rebooting.
+So we only need to start the jetty server for one time.We don't have to reboot/rerun the junit each time when we change the UT case's logic afterwards
+Improve efficiency by at least 70%
 
 ## 扩展更新
 集成了mockito的自定义装配
