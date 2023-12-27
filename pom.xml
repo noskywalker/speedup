@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.alex</groupId>
 	<artifactId>speedup</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.3</version>
 	<name>speedup</name>
 	<packaging>jar</packaging>
 	<description>speedup</description>
@@ -152,6 +152,23 @@
 			<version>3.9</version>
 		</dependency>
 	</dependencies>
+
+	<distributionManagement>
+<!--		<repository>-->
+<!--			<id>avalon-nexus</id>-->
+<!--			<url>https://public-nexus.gofinlabs.io/repository/maven-avalon-group/</url>-->
+<!--		</repository>-->
+		<snapshotRepository>
+			<id>avalon-snapshots</id>
+			<name>Nexus Snapshot Repository</name>
+			<url>https://public-nexus.gofinlabs.io/repository/maven-avalon-snapshot/</url>
+		</snapshotRepository>
+		<repository>
+			<id>avalon-releases</id>
+			<name>Nexus Release Repository</name>
+			<url>https://public-nexus.gofinlabs.io/repository/maven-avalon/</url>
+		</repository>
+	</distributionManagement>
 
 	<build>
 		<plugins>
